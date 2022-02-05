@@ -1,10 +1,13 @@
-<h1>My First PHP Site</h1>
-<p>This HTML will get delivered as is</p>
-<?php echo "<p>But this code is interpreted by PHP and turned into HTML</p>";?>
-<?php echo "<ul><li>You can use all HTML tags,</li><li>like this list.</li></ul>";?>
-<footer>
-  <p>And this code is back in plain HTML</p>
-</footer>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Database</title>
+</head>
+<body>
+<img id="topbannerDB" alt="this is the top banner" src="./xd-ref/topbanner.png">
+  
 
 <?php
 $servername = "localhost";
@@ -19,13 +22,13 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT firstname, lastname FROM cats";
+$sql = "SELECT OrganizationName, Category FROM havenprojectdatabase";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo  "Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    echo  "Organization Name: " . $row["OrganizationName"]. "&nbsp;&nbsp;&nbsp;&nbsp;Category: " . $row["Category"]. "<br>";
   }
 } else {
   echo "0 results";
@@ -33,3 +36,4 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
+</body>
