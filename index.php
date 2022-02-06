@@ -1,3 +1,10 @@
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
 <?php
 $user = ""; //prevent the "no index" error from $_POST
 $pass = "";
@@ -29,10 +36,17 @@ if ((password_verify($user, $hasheduser)) && (password_verify($pass,$hashedpass)
     // then it'll also display the form. that's why I set $user to "" instead of a $_POST
     // this is the right place for comments, not inside html
     ?>  
+    
+<body>
+<img id="topbanner" alt="this is the top banner" src="./xd-ref/topbanner.png">
+<div id="loginWrapper">
     <form method="POST" action="index.php">
-    User <input type="text" name="user"></input><br/>
-    Pass <input type="password" name="pass"></input><br/>
-    <input type="submit" name="submit" value="Go"></input>
+    Username: <input class="form" type="text" name="user"></input><br/>
+    <br>
+    Password: <input class="form" type="password" name="pass"></input><br/>
+    <input id="go" type="submit" name="submit" value="Go"></input>
     </form>
+</div>
+</body>
     <?php 
 } 
